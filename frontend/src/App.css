@@ -1,0 +1,67 @@
+/* --- RESPONSIVE LAYOUT HELPERS --- */
+
+/* Phones */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  .main-area {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #444;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .video-card,
+  .channel-video-card {
+    width: 100%;
+  }
+
+  .video-player-layout {
+    flex-direction: column;
+  }
+
+  .video-side-panel {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 180px;
+  }
+
+  .video-grid,
+  .channel-video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .video-grid,
+  .channel-video-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
