@@ -114,6 +114,10 @@ This project implements **video upload, playback, like/dislike, comments, channe
 * Mongoose
 * JWT Authentication
 
+
+### **Database**
+Using MongoDB Atlas for database
+
 ---
 
 ## 📁 Folder Structure
