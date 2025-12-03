@@ -1,6 +1,5 @@
 // VideoPlayer: Plays a single video and shows channel info,
-// like/dislike/share/download actions, comments with edit/delete,
-// and recommended videos on the right.
+// like/dislike/share/download actions, comments with edit/delete, and recommended videos on the right.
 
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -262,7 +261,7 @@ function VideoPlayer() {
       </div>
     );
   }
-
+  //count of likes and dislikes
   const likeCount = Array.isArray(video.likes)
     ? video.likes.length
     : Number(video.likes) || 0;
