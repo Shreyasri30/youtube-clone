@@ -209,7 +209,8 @@ function Sidebar({ isOpen }) {
         <hr className="sidebar-divider" />
 
         {/* Sign in prompt when logged out */}
-        {!user && (
+        {/* Sign in prompt when logged out - only in expanded sidebar */}
+        {!user && isOpen && (
           <>
             <div className="sidebar-signin-box">
               <p>Sign in to like videos, comment, and subscribe.</p>
@@ -227,6 +228,7 @@ function Sidebar({ isOpen }) {
             <hr className="sidebar-divider" />
           </>
         )}
+
 
         {/* Library – only when logged in */}
         {user && (
