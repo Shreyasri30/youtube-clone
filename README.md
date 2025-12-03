@@ -8,6 +8,9 @@ This project implements **video upload, playback, like/dislike, comments, channe
 
 ---
 Demo video link: https://drive.google.com/file/d/1ce_H3wpArb9oAWmE5vyssLabOVIeDfWt/view?usp=sharing
+
+---
+
 Github link: https://github.com/Shreyasri30/youtube-clone
 
 ---
