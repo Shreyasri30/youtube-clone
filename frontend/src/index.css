@@ -298,8 +298,9 @@ a {
     height: 100%;
     z-index: 20;
     transform: translateX(-100%);
+    transition: all 0.25s ease-in-out; /* smoother */
   }
-
+  
   .sidebar.open {
     transform: translateX(0);
   }
