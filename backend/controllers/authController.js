@@ -59,8 +59,7 @@ export const registerUser = async (req, res) => {
 };
 
 /* ===========================
-   LOGIN USER 
-   (email OR username)
+   LOGIN USER (email OR username)
 =========================== */
 export const loginUser = async (req, res) => {
   try {

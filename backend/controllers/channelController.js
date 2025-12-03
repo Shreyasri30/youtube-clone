@@ -58,10 +58,7 @@ export const getChannelById = async (req, res) => {
   }
 };
 
-/* ======================================
-   TOGGLE SUBSCRIBE / UNSUBSCRIBE CHANNEL
-   (one subscription per user per channel)
-====================================== */
+/* TOGGLE SUBSCRIBE / UNSUBSCRIBE CHANNEL (one subscription per user per channel) */
 export const toggleSubscribe = async (req, res) => {
   try {
     const userId = req.user.id;
