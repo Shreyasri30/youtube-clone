@@ -67,7 +67,7 @@ const MoreVerticalIcon = () => (
 function VideoPlayer() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { user } = useContext(AuthContext) || {};
+  const { user, token } = useContext(AuthContext) || {};
 
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [video, setVideo] = useState(null);
@@ -79,6 +79,11 @@ function VideoPlayer() {
   const [recommended, setRecommended] = useState([]);
   const [openCommentMenuId, setOpenCommentMenuId] = useState(null);
   const [isSubscribed, setIsSubscribed] = useState(false); // simple local toggle
+
+  // Auth header for all protected routes
+  const authConfig = token
+    ? { headers: { Authorization: `Bearer ${token}` } }
+    : {};
 
   // ===== API LOADERS =====
 
@@ -132,11 +137,11 @@ function VideoPlayer() {
     return true;
   };
 
-  // Like / Dislike toggle with new PUT endpoints
+  // Like / Dislike toggle with protected PUT endpoints
   const handleLike = async () => {
     if (!requireLogin("Please sign in to like videos.")) return;
     try {
-      await api.put(`/videos/${id}/like`);
+      await api.put(`/videos/${id}/like`, {}, authConfig);
       fetchVideo();
     } catch (error) {
       console.error("Error liking video:", error);
@@ -146,7 +151,7 @@ function VideoPlayer() {
   const handleDislike = async () => {
     if (!requireLogin("Please sign in to dislike videos.")) return;
     try {
-      await api.put(`/videos/${id}/dislike`);
+      await api.put(`/videos/${id}/dislike`, {}, authConfig);
       fetchVideo();
     } catch (error) {
       console.error("Error disliking video:", error);
@@ -184,7 +189,11 @@ function VideoPlayer() {
     }
 
     try {
-      const res = await api.post(`/channels/${channelId}/subscribe`);
+      const res = await api.post(
+        `/channels/${channelId}/subscribe`,
+        {},
+        authConfig
+      );
       if (typeof res.data.subscribed === "boolean") {
         setIsSubscribed(res.data.subscribed);
       } else {
@@ -204,7 +213,11 @@ function VideoPlayer() {
     if (!newCommentText.trim()) return;
 
     try {
-      await api.post(`/comments/${id}`, { text: newCommentText.trim() });
+      await api.post(
+        `/comments/${id}`,
+        { text: newCommentText.trim() },
+        authConfig
+      );
       setNewCommentText("");
       fetchComments();
     } catch (error) {
@@ -221,9 +234,11 @@ function VideoPlayer() {
   const handleUpdateComment = async (commentId) => {
     if (!editingText.trim()) return;
     try {
-      await api.put(`/comments/update/${commentId}`, {
-        text: editingText.trim()
-      });
+      await api.put(
+        `/comments/update/${commentId}`,
+        { text: editingText.trim() },
+        authConfig
+      );
       setEditingCommentId(null);
       setEditingText("");
       fetchComments();
@@ -234,7 +249,7 @@ function VideoPlayer() {
 
   const handleDeleteComment = async (commentId) => {
     try {
-      await api.delete(`/comments/delete/${commentId}`);
+      await api.delete(`/comments/delete/${commentId}`, authConfig);
       setOpenCommentMenuId(null);
       fetchComments();
     } catch (error) {
@@ -261,7 +276,8 @@ function VideoPlayer() {
       </div>
     );
   }
-  //count of likes and dislikes
+
+  // count of likes and dislikes
   const likeCount = Array.isArray(video.likes)
     ? video.likes.length
     : Number(video.likes) || 0;
