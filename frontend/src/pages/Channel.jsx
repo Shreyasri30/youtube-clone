@@ -1,3 +1,4 @@
+//User's channel logic
 import { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
@@ -68,7 +69,7 @@ function Channel() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  // NEW: YouTube-style sort for "Videos" tab
+  //YouTube-style sort for "Videos" tab
   const [sortOption, setSortOption] = useState("latest"); // latest | popular | oldest
 
   const authConfig = token
@@ -170,7 +171,6 @@ function Channel() {
     if (sortOption === "oldest") {
       return timeA - timeB; // oldest first
     }
-    // latest
     return timeB - timeA; // newest first
   });
 
@@ -244,7 +244,7 @@ function Channel() {
                 )}
               </div>
 
-              {/* HOME TAB (card like your screenshot – no random “0”) */}
+              {/* HOME TAB */}
               {activeTab === "Home" && (
                 <section className="channel-videos">
                   <h3 className="section-title">Featured</h3>
