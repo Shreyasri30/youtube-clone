@@ -5,7 +5,7 @@
 
 A full-stack YouTube-like video streaming platform built using the **MERN stack** (MongoDB, Express, React, Node).
 This project implements **video upload, playback, like/dislike, comments, channel creation, search, subscribe system**, and full responsive UI inspired by YouTube.
-
+Github link: https://github.com/Shreyasri30/youtube-clone
 ---
 
 ## 🚀 Features Overview
