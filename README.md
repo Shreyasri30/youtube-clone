@@ -154,8 +154,10 @@ Create `.env` in backend folder:
 
 ```
 PORT=5000
-MONGO_URI=mongodb+srv://ramkishreya_db_user:EFMqXx5o5Owq0rnA@cluster0.udxgzt6.mongodb.net/youtube_clone retryWrites=true&w=majority&appName=Cluster0
-JWT_SECRET=supersecretjwtkey123
+MONGO_URI=your-mongodb-atlas-connection-string
+JWT_SECRET=your-jwt-secret
+
+(For the credentials of this project db, refer to .env file in backend)
 
 ```
 
