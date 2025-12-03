@@ -62,8 +62,8 @@ a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 20px;
+  width: 30px;
+  height: 25px;
 }
 
 .logo-icon svg {
@@ -104,8 +104,8 @@ a {
 }
 
 .auth-button {
-  padding: 6px 12px;
-  border-radius: 16px;
+  padding: 8px 14px;
+  border-radius: 18px;
   border: 1px solid #3ea6ff;
   background: transparent;
   color: #3ea6ff;
