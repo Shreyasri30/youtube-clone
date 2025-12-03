@@ -300,7 +300,7 @@ a {
     transform: translateX(-100%);
     transition: all 0.25s ease-in-out; /* smoother */
   }
-  
+
   .sidebar.open {
     transform: translateX(0);
   }
@@ -548,6 +548,7 @@ a {
 .channel-video-meta {
   font-size: 13px;
   color: #aaaaaa;
+  margin-top: 2px;  /* improved spacing */
 }
 
 /* Sort chips row (Latest / Popular / Oldest) */
