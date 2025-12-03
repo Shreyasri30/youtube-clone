@@ -168,8 +168,9 @@ export const likeVideo = async (req, res) => {
 
     const video = await Video.findById(id);
 
+    // Standardized error response format
     if (!video) {
-      return res.status(404).json({ message: "Video not found" });
+      return res.status(404).json({ success: false, message: "Video not found" });
     }
 
     const likedIndex = video.likes.findIndex(
